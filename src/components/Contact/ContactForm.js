@@ -90,6 +90,17 @@ export const ContactForm = () => {
 
         axios(config1).then(function (response) {
           console.log(JSON.stringify(response.data));
+          var result = response.data;
+          if(result.status === "success") {
+            setName("");
+            setEmail("");
+            setMobile("");
+            setMessage("");
+            setSubjects("");
+            alert.show('Enquiry Submitted successfully');
+          } else {
+            alert.show(result.message);
+          }
         })
         .catch(function (error) {
           console.log(error);

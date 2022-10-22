@@ -101,7 +101,10 @@ export default function Career() {
           console.log(error);
         });
       } else {
-        console.log('no token');
+        if(res.status === "success") {
+        } else {
+          alert.show(res.message);
+        }
       }
     })
     .catch(function (error) {
